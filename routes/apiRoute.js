@@ -1,5 +1,5 @@
 // require express module
-const express = require(express);
+const express = require('express');
 
 // create app using express router
 const app = express.Router();
@@ -10,8 +10,8 @@ const fs = require('fs');
 // import db.json located one folder up and inside db folder
 const notesDB = require('../db/db.json');
 
-// require v4:uuid to create unique id for new saves
-const { v4: uuidv4 } = require('uuid');
+// // require v4:uuid to create unique id for new saves
+// const { v4: uuidv4 } = require('uuidv4');
 
 // Create GET, POST, DELETE api routes
 // Create Get api request to Read existing note
@@ -28,8 +28,8 @@ app.post('/api/notes', (req, res) => {
     // Create new notes variable from request body
     let newNotes = request.body;
 
-    // Assign uuid to newNotes id
-    newNotes.id = uuidv4();
+    // // Assign uuid to newNotes id
+    // newNotes.id = uuidv4();
 
     // Read db.json and push newNotes to notes and writeFile
     let notes = JSON.parse(fs.readFileSync(notesDB, 'utf-8'));
