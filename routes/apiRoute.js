@@ -28,9 +28,17 @@ app.post('/api/notes', (req, res) => {
     // Create new notes variable from request body
     let newNotes = request.body;
 
-    // 
+    // Assign uuid to newNotes id
+    newNotes.id = uuidv4();
 
+    // Read db.json and push newNotes to notes and writeFile
     let notes = JSON.parse(fs.readFileSync(notesDB, 'utf-8'));
+    notes.push(newNotes);
+    fs.writeFileSync(notesDB, JSON.stringify(notes));
+
     // Return notes as response
     res.json(notes);
 });
+
+// export module as app
+module.exports = app;
