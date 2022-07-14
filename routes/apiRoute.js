@@ -14,15 +14,15 @@ const fs = require('fs');
 const notesDB = require('../db/db.json');
 
 
-// Create notes variable for reading db.json by parsing
-let notes = JSON.parse(data);
 
 // Create GET, POST, DELETE api routes
 
 // Create Get api request to Read existing note
 app.get('/api/notes', (req, res) => {
     console.log('Loading notes as requested');
-
+    
+    // Create notes variable for reading db.json by parsing
+    let notes = JSON.parse(data);
     // Return notes as response
     res.json(notes);
 });
