@@ -65,7 +65,7 @@ app.get('/api/notes/:id', (req, res) => {
 
 // create writeFileDB function for POST/DELETE routes
 function writeFileDB() {
-    fs.writeFileSync(notesDB, JSON.stringify(notes, '\t'), err => {
+    fs.writeFileSync(notesDB, JSON.stringify(notes, ''), err => {
         // catch error and return true 
         if (err) throw err;
         return true;
