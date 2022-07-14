@@ -2,7 +2,7 @@
 const express = require('express');
 
 // create app using express router
-const app = express.Router();
+const app = express();
 
 // require path module
 const path = require('path');
