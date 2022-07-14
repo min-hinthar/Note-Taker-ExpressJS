@@ -4,6 +4,9 @@ const express = require('express');
 // create app using express router
 const app = express.Router();
 
+// require path module
+const path = require('path');
+
 // require fs to write files
 const fs = require('fs');
 
@@ -18,7 +21,7 @@ const notesDB = require('../db/db.json');
 app.get('/api/notes', (req, res) => {
     console.log('Loading notes as requested');
     // Create notes variable for reading db.json by parsing
-    let notes = JSON.parse(fs.readFileSync(notesDB, 'utf-8'));
+    let notes = JSON.parse(data);
     // Return notes as response
     res.json(notes);
 });
