@@ -36,7 +36,7 @@ app.post('/api/notes', (req, res) => {
     notes.push(newNotes);
     
     // write new data and update json file
-    writeFileDB();
+    writeFileDB(newNotes);
 
     // Return notes to display title on console
     return console.log('Successfully saved note: '+newNotes.title);
@@ -56,7 +56,7 @@ app.get('/api/notes/:id', (req, res) => {
     notes.splice(req.params.id, 1);
 
     // write updated array to file
-    writeFileDB();
+    writeFileDB(notes);
 
     // Return notes to display id on console
     return console.log('Successfully deleted note: '+req.params.id);
