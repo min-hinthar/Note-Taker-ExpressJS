@@ -13,15 +13,16 @@ const fs = require('fs');
 // import db.json located one folder up and inside db folder
 const notesDB = require('../db/db.json');
 
-// // require v4:uuid to create unique id for new saves
-// const { v4: uuidv4 } = require('uuidv4');
+
+// Create notes variable for reading db.json by parsing
+let notes = JSON.parse(data);
 
 // Create GET, POST, DELETE api routes
+
 // Create Get api request to Read existing note
 app.get('/api/notes', (req, res) => {
     console.log('Loading notes as requested');
-    // Create notes variable for reading db.json by parsing
-    let notes = JSON.parse(data);
+
     // Return notes as response
     res.json(notes);
 });
@@ -31,17 +32,46 @@ app.post('/api/notes', (req, res) => {
     // Create new notes variable from request body
     let newNotes = request.body;
 
-    // // Assign uuid to newNotes id
-    // newNotes.id = uuidv4();
-
     // Read db.json and push newNotes to notes and writeFile
-    let notes = JSON.parse(fs.readFileSync(notesDB, 'utf-8'));
     notes.push(newNotes);
-    fs.writeFileSync(notesDB, JSON.stringify(notes));
+    
+    // write new data and update json file
+    writeFileDB();
+
+    // Return notes to display title on console
+    return console.log('Successfully saved note: '+newNotes.title);
+});
+
+// create GET route to read note with id
+app.get('/api/notes/:id', (req, res) => {
+    console.log('Loading notes as requested');
 
     // Return notes as response
-    res.json(notes);
+    res.json(notes[req.params.id]);
 });
+
+// create DELETE route to delete note with unique id
+app.get('/api/notes/:id', (req, res) => {
+    // use splice method to remove from array
+    notes.splice(req.params.id, 1);
+
+    // write updated array to file
+    writeFileDB();
+
+    // Return notes to display id on console
+    return console.log('Successfully deleted note: '+req.params.id);
+});
+
+
+// create writeFileDB function for POST/DELETE routes
+function writeFileDB() {
+    fs.writeFileSync(notesDB, JSON.stringify(notes, '\t'), err => {
+        // catch error and return true 
+        if (err) throw err;
+        return true;
+    })
+};
+
 
 // export module as app
 module.exports = app;
