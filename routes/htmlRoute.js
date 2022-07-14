@@ -3,8 +3,8 @@ const express = require('express');
 // require path module
 const path = require('path');
 
-// // create app by using express router 
-// const app = express.Router();
+// create app by using express router 
+const app = express.Router();
 
 // Route user to notes.html (located one folder up and inside public folder) when requested by path /notes
 app.get('/notes', (req, res) => {
