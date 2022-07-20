@@ -20,18 +20,28 @@ const uniqid = require('uniqid');
 
 // Create Get api request to Read existing note
 app.get('/api/notes', (req, res) => {
-    console.log('Loading notes as requested');
+    // console.log('Loading notes as requested');
+
     // Return notes as response
     res.sendFile(path.join(__dirname, '../db/db.json'));
 });
 
 // Create POST api request to Create new notes
-app.post('/api/notes', (req, res) => {
-    // Create new notes variable from request body
-    let newNotes = request.body;
+app.post('/api/notes', (req, res) => 
+    let db = fs.readFileSync('notesDB');
+    db = JSON.parse(db);
+    res.JSON(db);
+    // Create new notes variable from request title and text from body
+    let newNotes = {
+        title: req.body.title,
+        text: req.body.text,
+
+        // Create unique id for new notes
+        id: uniqid(),
+    };
 
     // Read db.json and push newNotes to notes and writeFile
-    notes.push(newNotes);
+    res.JSON..push(newNotes);
     
     // write new data and update json file
     writeFileDB(newNotes);
