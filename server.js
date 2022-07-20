@@ -1,8 +1,7 @@
 // require express module
 const express = require('express');
-// require path module
-const path = require('path');
 
+// import api and html routes
 const apiRoute = require('./routes/apiRoute');
 const htmlRoute = require('./routes/htmlRoute');
 
