@@ -13,18 +13,16 @@ const fs = require('fs');
 // import db.json located one folder up and inside db folder
 const notesDB = require('../db/db.json');
 
-
+// require uniqid for unique id
+const uniqid = require('uniqid');
 
 // Create GET, POST, DELETE api routes
 
 // Create Get api request to Read existing note
 app.get('/api/notes', (req, res) => {
     console.log('Loading notes as requested');
-    
-    // Create notes variable for reading db.json by parsing
-    let notes = JSON.parse(data);
     // Return notes as response
-    res.json(notes);
+    res.sendFile(path.join(__dirname, '../db/db.json'));
 });
 
 // Create POST api request to Create new notes
