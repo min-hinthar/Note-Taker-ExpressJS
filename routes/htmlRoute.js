@@ -3,18 +3,18 @@ const express = require('express');
 // require path module
 const path = require('path');
 
-// create app by using express 
-const app = express();
+// create router by using express 
+const router = express.Router();
 
 // Route user to notes.html (located one folder up and inside public folder) when requested by path /notes
-app.get('/notes', (req, res) => {
+router.get('/notes', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/notes.html'))
 });
 
 // Route user to index.html (located one folder up and inside public folder) when requested by path /
-app.get('*', (req, res) => {
+router.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../public/index.html'))
 });
 
-// export module as app
-module.exports = app;
+// export module as router
+module.exports = router;
