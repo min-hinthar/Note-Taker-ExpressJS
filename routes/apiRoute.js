@@ -79,7 +79,6 @@ router.delete('/notes/:id', (req, res) => {
     console.log('Successfully deleted note: '+req.params.id);
 });
 
-
 // create writeFileDB function for POST/DELETE routes
 function writeFileDB(notes) {
     fs.writeFileSync('./db/db.json', JSON.stringify(notes), err => {
@@ -88,7 +87,6 @@ function writeFileDB(notes) {
         return true;
     })
 };
-
 
 // export module as router
 module.exports = router;
