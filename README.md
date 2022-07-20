@@ -1,7 +1,21 @@
-# Note Taker Starter Code
+# Project Title [ Note Taker Express]
 
+-----
+
+## Table of Contents
+1. [Description](#description)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Contributing](#contributing)
+5. [Tests](#tests)
+6. [License](#license)
+7. [Questions](#questions)
+
+-----
+### Description 
 Create an application called Note Taker that can be used to write and save notes. This application will use an Express.js back end and will save and retrieve note data from a JSON file.
 
+### Usage 
 User Story
 AS A small business owner
 I WANT to be able to write and save notes
@@ -21,19 +35,38 @@ THEN that note appears in the right-hand column
 WHEN I click on the Write icon in the navigation at the top of the page
 THEN I am presented with empty fields to enter a new note title and the note’s text in the right-hand column
 
+-----
 
-Getting Started
-The application should have a db.json file on the back end that will be used to store and retrieve notes using the fs module.
+### Installation Req
+NPM Dependencies node, fs, express, path, uuidv4
 
-The following HTML routes should be created:
+-----
 
-GET /notes should return the notes.html file.
+### Contributing 
+YES 
 
-GET * should return the index.html file.
+-----
 
-The following API routes should be created:
+### Tests 
+Insomnia
 
-GET /api/notes should read the db.json file and return all saved notes as JSON.
+-----
 
-POST /api/notes should receive a new note to save on the request body, add it to the db.json file, and then return the new note to the client. You'll need to find a way to give each note a unique id when it's saved (look into npm packages that could do this for you).
+### License 
+MIT 
 
+-----
+
+### Questions 
+
+#### GitHub Username: min-hinthar 
+
+#### GitHub URL: https://github.com/min-hinthar
+
+#### GitHub Repo: https://github.com/min-hinthar/Note-Taker-ExpressJS
+
+#### HEROKU Deployed: https://benefique-maison-95508.herokuapp.com/
+
+#### Email: min@hintharinc.com
+
+-----
