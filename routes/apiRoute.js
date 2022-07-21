@@ -84,7 +84,7 @@ function writeFileDB(notes) {
     fs.writeFileSync('./db/db.json', JSON.stringify(notes), err => {
         // catch error and return true 
         if (err) throw err;
-        return true;
+        // return true;
     })
 };
 
