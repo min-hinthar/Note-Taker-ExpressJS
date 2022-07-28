@@ -1,5 +1,7 @@
 # Project Title [ Note Taker Express]
 
+![Getting Started](./public/assets/Screenshot_final.jpg)
+
 -----
 
 ## Table of Contents
